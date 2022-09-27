@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>토마스와 친구들 (KALEIDO) 주점</title>
+    </head>
+    <body>
+        <h2>토마스와 친구들 (KALEIDO)
+            주점 키오스크</h2>
+        <!--Get Table Number-->
+        <div id="TableNum">
+            <h3 style="display:inline">테이블 번호: </h3>
+            <select name='tableNum'>
+                <option value='select' selected>-- 선택 --</option>
+                <option value='1'>1번</option>
+                <option value='2'>2번</option>
+                <option value='3'>3번</option>
+                <option value='4'>4번</option>
+                <option value='5'>5번</option>
+                <option value='6'>6번</option>
+                <option value='7'>7번</option>
+                <option value='8'>8번</option>
+                <option value='9'>9번</option>
+                <option value='10'>10번</option>
+                <option value='11'>11번</option>
+                <option value='12'>12번</option>
+                <option value='13'>13번</option>
+                <option value='14'>14번</option>
+            </select>
+        </div>
+        <br>
+        <!--Get Order Name-->
+        <form action="/">
+            <label for="Name"><h3 style="display:inline">주문자명: </h3></label>
+            <input type="text" id="Name" name="OrderName" placeholder="성함"><br>
+        </form>
+        <br>
+        
+        <!--Get Order menu-->
+        <table border="1"><!--table 시작-->
+            <th>메뉴명</th>
+            <th>금액</th>
+            <th>수량</th>
+            <tr><!--첫번째 줄 시작: 두부김치-->
+                <td>1. 두부김치</td>
+                <td align="right">7,000원</td>
+                <td><!--수량 조절-->
+                    <button type="button" class="leftarrow 1">◀</button>
+                    <input type="number" style="width:30px" value="0" class="1">
+                    <button type="button" class="rightarrow 1">▶</button>
+                </td>
+            </tr><!--첫번째 줄 끝-->
+
+            <tr><!--두번째 줄 시작: 오뎅탕-->
+                <td>2. 오뎅탕</td>
+                <td align="right">10,000원</td>
+                <td><!--수량 조절-->
+                    <button type="button" class="leftarrow 2">◀</button>
+                    <input type="number" style="width:30px" value="0" class="2">
+                    <button type="button" class="rightarrow 2">▶</button>
+                </td>
+            </tr><!--두번째 줄 끝-->
+
+            <tr><!--세번째 줄 시작: 쏘야볶음-->
+                <td>3. 쏘야볶음</td>
+                <td align="right">8,000원</td>
+                <td><!--수량 조절-->
+                    <button type="button" class="leftarrow 3">◀</button>
+                    <input type="number" style="width:30px" value="0" class="3">
+                    <button type="button" class="rightarrow 3">▶</button>
+                </td>
+            </tr><!--세번째 줄 끝-->
+
+            <tr><!--네번째 줄 시작: 콘치즈-->
+                <td>4. 콘치즈</td>
+                <td align="right">7,000원</td>
+                <td><!--수량 조절-->
+                    <button type="button" class="leftarrow 4">◀</button>
+                    <input type="number" style="width:30px" value="0" class="4">
+                    <button type="button" class="rightarrow 4">▶</button>
+                </td>
+            </tr><!--네번째 줄 끝-->
+
+            <tr><!--다섯번째 줄 시작: 주먹밥-->
+                <td>5. 주먹밥</td>
+                <td align="right">7,000원</td>
+                <td><!--수량 조절-->
+                    <button type="button" class="leftarrow 5">◀</button>
+                    <input type="number" style="width:30px" value="0" class="6">
+                    <button type="button" class="rightarrow 5">▶</button>
+                </td>
+            </tr><!--다섯번째 줄 끝-->
+
+            <tr><!--여섯번째 줄 시작: 컵라면-->
+                <td>6. 컵라면</td>
+                <td align="right">1,000원</td>
+                <td><!--수량 조절-->
+                    <button type="button" class="leftarrow 6">◀</button>
+                    <input type="number" style="width:30px" value="0" class="6">
+                    <button type="button" class="rightarrow 6">▶</button>
+                </td>
+            </tr><!--여섯번째 줄 끝-->
+
+            <tr><!--일곱번째 줄 시작:콜라-->
+                <td>7. 음료수(콜라)</td>
+                <td align="right">1,000원</td>
+                <td><!--수량 조절-->
+                    <button type="button" class="leftarrow 7">◀</button>
+                    <input type="number" style="width:30px" value="0" class="7">
+                    <button type="button" class="rightarrow 7">▶</button>
+                </td>
+            </tr><!--일곱번째 줄 끝-->
+
+            <tr><!--여덟번째 줄 시작: 사이다-->
+                <td>7. 음료수(사이다)</td>
+                <td align="right">1,000원</td>
+                <td><!--수량 조절-->
+                    <button type="button" class="leftarrow 8">◀</button>
+                    <input type="number" style="width:30px" value="0" class="8">
+                    <button type="button" class="rightarrow 8">▶</button>
+                </td>
+            </tr><!--여덟번째 줄 끝-->
+
+            <tr><!--아홉번째 줄 시작: 합계-->
+                <td align="middle">합계</td>
+                <td><button type="button" class="calcul" onclick="">계산하기</button></td>
+                <td align="right">100,000원</td>
+            </tr>
+        </table><!--table 끝-->
+
+        <button type="submit"> 주문 제출 </button>
+        <!--Show Sum Calculation of Order -->
+
+
+
+    </body>
+</html>
+
+
