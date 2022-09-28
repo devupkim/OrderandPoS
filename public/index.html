@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--BootStrap CSS-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
+    <title>POS기</title>
+  </head>
+  <body>
+
+    <div class="container">
+      <div class="order">
+        <div class="tableNum suare-md rouned" style="background-color:black; color:white">테이블번호</div>
+        <div class="">
+          <h5 class="">아기다스 신발</h5>
+          <p class="date">2030년 1월 8일</p>
+          <p class="price">20000원</p>
+          <p class="float-end">?0</p>
+        </div>
+      </div>
+    </div>
+
+    <div><!--기본 세팅 CDN 설치 및 FireBase 사용 페이지에 등록-->
+      <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-app.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-auth.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-firestore.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-storage.js"></script>
+
+      <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+        crossorigin="anonymous"
+      ></script>
+      <script
+        src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+        crossorigin="anonymous"
+      ></script>
+
+      <script>
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+          apiKey: "AIzaSyBPY0b08hF_vXqoVtQbAxcDx_CYsd-Hcm0",
+          authDomain: "jujum-kiosk.firebaseapp.com",
+          projectId: "jujum-kiosk",
+          storageBucket: "jujum-kiosk.appspot.com",
+          messagingSenderId: "143396821426",
+          appId: "1:143396821426:web:76baf10c1e2d26b3c46cab",
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+      </script><!--Firebase 기본 추가 항목 끝-->
+
+
+      <h2>토마스와 친구들 주점 POS</h2>
+      <script>
+        const db = firebase.firestore();
+        db.collection('order').get().then((결과)=>{
+          결과.forEach((doc)=>{
+            console.log(doc.data());
+            var 템플릿 = `<div> 주문 하나 </div>`;
+            ${'.containter'}.append(템플릿);
+          })
+        })
+      </script>
+    </div>
+
+  </body>
+</html>
