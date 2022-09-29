@@ -56,6 +56,7 @@
     </nav>
 
     <script>
+      var clickedmenuid
       var menuarr=[
         [6000,0],
         [10000,0],
@@ -67,12 +68,38 @@
         [1000,0],
         [1000,0]
       ];
-      window.onload = function(){
-        console.log(document.getElementById('menu-price').innerHTML);
+
+      document.getElementsByName("menu1").innerHTML = menuarr[0][0];
+      document.getElementsByName("menu2").innerHTML = menuarr[1][0];
+      document.getElementsByName("menu3").innerHTML = menuarr[2][0];
+      document.getElementsByName("menu4").innerHTML = menuarr[3][0];
+      document.getElementsByName("menu5").innerHTML = menuarr[4][0];
+      document.getElementsByName("menu6").innerHTML = menuarr[5][0];
+      document.getElementsByName("menu7").innerHTML = menuarr[6][0];
+      document.getElementsByName("menu8").innerHTML = menuarr[7][0];
+      document.getElementsByName("menu9").innerHTML = menuarr[8][0];
+
+
+      function minusClick(menuid){//call minus1, 뿌리기
+        var newnumber = Number(minus1(menuid));
+        var findmenuid="menu"+menuid;
+        console.log(newnumber);
+        document.getElementById(findmenuid).innerHTML = newnumber;
       }
+      function minus1(menuid){
+        var Nmenuid=Number(menuid);
+        menuarr[Nmenuid-1][1]--;
+        console.log("menu"+menuid+': '+menuarr[Nmenuid-1][1]);
+        return menuarr[Nmenuid-1][1]--;
+      }
+      function plus1(menuid){
+        menuarr[menuid-1][1]++;
+      }
+
+      
     </script>
 
-    <h2>주문하기</h2>
+    <h1>주문하기</h1>
     <div class="container mt-3">
       <!--Get Table Number-->
       <div id="TableNum">
@@ -105,106 +132,106 @@
       <!--Get Order menu-->
       <table class="table"><!--table 시작-->
         <thead class="thead-dark">
-          <th scope="col" align="middle">메뉴명</th>
+          <th scope="col" align="middle">메뉴</th>
           <th class="col" scope="col" align="middle">금액</th>
-          <th scope="col" align="middle">수량</th>
+          <th scope="col" style="width:150px;" align="middle">수량</th>
         </thead>
         <tbody>
           <tr class="두부김치"><!--첫번째 줄 시작: 두부김치-->
-            <td>1. 두부김치</td>
-            <td align="right" id="menu-price" name="menu1"></td>
+            <td>1. 토마스는 <b style="color:red">두부</b>에 <b style="color:red">김치</b>를 올려</td>
+            <td align="right" id="menu" name="menu1"></td>
             <td>
               <!--수량 조절-->
-              <input id="menu1" name="menu1" type="number" style="width: 60px" value="0" class="1" />
-              <button type="button" class="leftarrow 1 btn btn-sm btn-dark">▼</button>
+              <button type="button" class="leftarrow 1 btn btn-sm btn-dark" onclick="javascript:minusClick(1)">▼</button>
+              <p id="menu1" name="menu1" type="number" style="width: 40px" value="0" class="1"></p>
               <button type="button" class="rightarrow 1 btn btn-sm btn-dark">▲</button>
             </td>
           </tr><!--첫번째 줄 끝-->
 
-          <tr class="오뎅탕"><!--두번째 줄 시작: 오뎅탕-->
-            <td>2. 오뎅탕</td>
-            <td align="right" id="menu-price" name="menu2">10,000원</td>
+          <tr class="쏘야볶음"><!--두번째 줄 시작: 쏘야볶음-->
+            <td>2. 토마스가 <b style="color:red">쏘야</b>올린 <b style="color:red">볶음</b></td>
+            <td align="right" id="menu" name="menu2">8,000원</td>
             <td>
               <!--수량 조절-->
               <button type="button" class="leftarrow 2 btn btn-sm btn-dark">▼</button>
-              <input  id="menu2" name="menu2" type="number" style="width: 60px" value="0" class="2" />
+              <input  id="menu2" name="menu2" type="number" style="width: 40px" value="0" class="2" />
               <button type="button" class="rightarrow 2 btn btn-sm btn-dark">▲</button>
             </td>
           </tr><!--두번째 줄 끝-->
 
-          <tr class="쏘야볶음"><!--세번째 줄 시작: 쏘야볶음-->
-            <td>3. 쏘야볶음</td>
-            <td align="right" id="menu-price" name="menu3">8,000원</td>
+          <tr class="콘치즈"><!--세번째 줄 시작: 콘치즈-->
+            <td>3. 긴장해진 <b style="color:red">콘치즈</b>에 느슨함을 줘</td>
+            <td align="right" id="menu" name="menu3">7,000원</td>
             <td>
               <!--수량 조절-->
               <button type="button" class="leftarrow 3 btn btn-sm btn-dark">▼</button>
-              <input  id="menu3" name="menu3" type="number" style="width: 60px" value="0" class="3" />
+              <input  id="menu3" name="menu3" type="number" style="width: 40px" value="0" class="3" />
               <button type="button" class="rightarrow 3 btn btn-sm btn-dark">▲</button>
             </td>
           </tr><!--세번째 줄 끝-->
 
-          <tr class="콘치즈"><!--네번째 줄 시작: 콘치즈-->
-            <td>4. 콘치즈</td>
-            <td align="right" id="menu-price" name="menu4">7,000원</td>
+          <tr class="오뎅탕"><!--네번째 줄 시작: 오뎅탕-->
+            <td>4. <b style="color:red">오뎅</b> 맛없다고 한사람 손들어 <b style="color:red">탕!</b> 이제없지?</td>
+            <td align="right" id="menu" name="menu4">10,000원</td>
             <td>
               <!--수량 조절-->
               <button type="button" class="leftarrow 4 btn btn-sm btn-dark">▼</button>
-              <input  id="menu4" name="menu4" type="number" style="width: 60px" value="0" class="4" />
+              <input  id="menu4" name="menu4" type="number" style="width: 40px" value="0" class="4" />
               <button type="button" class="rightarrow 4 btn btn-sm btn-dark">▲</button>
             </td>
           </tr><!--네번째 줄 끝-->
 
           <tr class="주먹밥"><!--다섯번째 줄 시작: 주먹밥-->
-            <td>5. 주먹밥</td>
-            <td align="right" id="menu-price" name="menu5">7,000원</td>
+            <td>5. <b style="color:red">주먹밥</b> 너 뭐 돼?</td> 
+            <td align="right" id="menu" name="menu5">7,000원</td>
             <td>
               <!--수량 조절-->
               <button type="button" class="leftarrow 5 btn btn-sm btn-dark">▼</button>
-              <input  id="menu5" name="menu5" type="number" style="width: 60px" value="0" class="5" />
+              <input  id="menu5" name="menu5" type="number" style="width: 40px" value="0" class="5" />
               <button type="button" class="rightarrow 5 btn btn-sm btn-dark">▲</button>
             </td>
           </tr><!--다섯번째 줄 끝-->
 
           <tr class="짜파게티"><!--여섯번째 줄 시작: 컵라면(짜파게티)-->
-            <td>6. 컵라면(짜파게티)</td>
-            <td align="right" id="menu-price" name="menu6">1,000원</td>
+            <td>6. 지.존. <b style="color:#d41e23">컵라면(짜파게티)</b></td>
+            <td align="right" id="menu" name="menu6">1,000원</td>
             <td>
               <!--수량 조절-->
               <button type="button" class="leftarrow 6 btn btn-sm btn-dark">▼</button>
-              <input id="menu6" name="menu6" type="number" style="width: 60px" value="0" class="6" />
+              <input id="menu6" name="menu6" type="number" style="width: 40px" value="0" class="6" />
               <button type="button" class="rightarrow 6 btn btn-sm btn-dark">▲</button>
             </td>
           </tr><!--여섯번째 줄 끝-->
 
           <tr class="진라면"><!--일곱번째 줄 시작: 컵라면(진라면)-->
-            <td>7. 컵라면(짜파게티)</td>
-            <td align="right" id="menu-price" name="menu7">1,000원</td>
+            <td>7. 지.존. <b style="color:#e33438">컵라면(진라면)</b></td>
+            <td align="right" id="menu" name="menu7">1,000원</td>
             <td>
               <!--수량 조절-->
               <button type="button" class="leftarrow 7 btn btn-sm btn-dark">▼</button>
-              <input  id="menu7" name="menu7" type="number" style="width: 60px" value="0" class="7" />
+              <input  id="menu7" name="menu7" type="number" style="width: 40px" value="0" class="7" />
               <button type="button" class="rightarrow 7 btn btn-sm btn-dark">▲</button>
             </td>
           </tr><!--일곱번째 줄 끝-->
 
           <tr class="콜라"><!--여덟번째 줄 시작:콜라-->
             <td>8. 음료수(콜라)</td>
-            <td align="right" id="menu-price" name="menu8">1,000원</td>
+            <td align="right" id="menu" name="menu8">1,000원</td>
             <td>
               <!--수량 조절-->
               <button type="button" class="leftarrow 8 btn btn-sm btn-dark">▼</button>
-              <input  id="menu8" name="menu8" type="number" style="width: 60px" value="0" class="8" />
+              <input  id="menu8" name="menu8" type="number" style="width: 40px" value="0" class="8" />
               <button type="button" class="rightarrow 8 btn btn-sm btn-dark">▲</button>
             </td>
           </tr><!--여덟번째 줄 끝-->
 
           <tr class="사이다"><!--아홉번째 줄 시작:사이다-->
             <td>9. 음료수(사이다)</td>
-            <td align="right" id="menu-price" name="menu9">1,000원</td>
+            <td align="right" id="menu" name="menu9">1,000원</td>
             <td>
               <!--수량 조절-->
               <button type="button" class="leftarrow 9 btn btn-sm btn-dark">▼</button>
-              <input  id="menu9" name="menu9" type="number" style="width: 60px" value="0" class="9" />
+              <input  id="menu9" name="menu9" type="number" style="width: 40px" value="0" class="9" />
               <button type="button" class="rightarrow 9 btn btn-sm btn-dark">▲</button>
             </td>
           </tr><!--아홉번째 줄 끝-->
